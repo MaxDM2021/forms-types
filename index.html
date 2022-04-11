@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Form</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&family=Raleway:wght@700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/modern-normalize/1.1.0/modern-normalize.min.css"
+      integrity="sha512-wpPYUAdjBVSE4KJnH1VR1HeZfpl1ub8YT/NKx4PuQ5NmX2tKuGu6U/JRp5y+Y8XG2tV+wKQpNHVUX03MfMFn9Q=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="stylesheet" href="./css/styles.css" />
+  </head>
+
+  <body>
+    <form class="js-speaker-form" autocomplete="off">
+      <div class="form-field">
+        <label for="name">Имя</label>
+        <input
+          type="text"
+          name="user-name"
+          id="name"
+          placeholder="Иван Иванович"
+          autofocus
+        />
+      </div>
+      <div class="form-field">
+        <label for="tel">Телефон</label>
+        <input type="tel" name="tel" id="tel" placeholder="+38067111111111" />
+      </div>
+      <div class="form-field">
+        <label for="mail">Почта</label>
+        <input
+          type="email"
+          name="mail"
+          id="mail"
+          autocomplete="on"
+          placeholder="my@mail.com"
+        />
+      </div>
+
+      <!-- Lable в Input вставлен: -->
+      <!-- Работает со всеми браузерами old school-->
+      <div class="form-field-lable">
+        <input
+          type="text"
+          class="form-input"
+          name="user-name"
+          id="name-a"
+          placeholder=" "
+          autofocus
+        />
+        <label for="name-a" class="form-label">Имя 1</label>
+        <span class="icon-name"></span>
+      </div>
+
+      <!--2-й вариант более новый-->
+
+      <div class="form-field-lable lb">
+        <input
+          type="text"
+          class="form-input lb"
+          name="user-name"
+          id="name-ab"
+          placeholder=" "
+          autofocus
+        />
+        <label for="name-a" class="form-label lb">Имя 2</label>
+        <span class="icon-name"></span>
+      </div>
+      <!-- Lable в Input вставлен-- END -->
+
+      <!-- Избавление от ID-шников -->
+
+      <div class="form-field-lable">
+        <label class="form-field le">
+          <input
+            type="text"
+            class="form-input le"
+            name="name-le"
+            placeholder=" "
+          />
+          <span class="form-lable le"></span>
+          <span class="icon-le"></span>
+        </label>
+      </div>
+
+      <div class="form-field-lable">
+        <label class="form-field le">
+          <input
+            type="text"
+            class="form-input le"
+            name="name-le"
+            placeholder=" "
+          />
+          <span class="form-lable le"></span>
+          <span class="icon-le"></span>
+        </label>
+      </div>
+
+      <!-- placeholder="Иван Иванович" -->
+      <div role="group" class="group">
+        <h2 class="group-title">Тема доклада</h2>
+        <ul class="topic-options">
+          <li>
+            <input type="checkbox" name="topic" value="html" id="html" />
+            <label for="html">HTML</label>
+          </li>
+          <li>
+            <input type="checkbox" name="topic" value="css" id="css" />
+            <label for="css">CSS</label>
+          </li>
+          <li>
+            <input type="checkbox" name="topic" value="js" id="js" />
+            <label for="js">JavaSkript</label>
+          </li>
+        </ul>
+      </div>
+
+      <div role="group" class="group">
+        <h2 class="group-title">Уровень вашей экспертизы</h2>
+        <ul class="experians-options">
+          <li>
+            <input
+              type="radio"
+              name="experians"
+              value="junior"
+              id="junior"
+              checked
+            />
+            <label for="junior">Junior</label>
+          </li>
+          <li>
+            <input type="radio" name="experians" value="middle" id="middle" />
+            <label for="middle">Middle</label>
+          </li>
+          <li>
+            <input type="radio" name="experians" value="senior" id="senior" />
+            <label for="senior">Senior</label>
+          </li>
+        </ul>
+      </div>
+
+      <div class="form-field">
+        <label for="date">Дата доклада</label>
+        <svg class="icon">
+          <use href="./"></use>
+        </svg>
+        <input
+          type="datetime-local"
+          name="date"
+          id="date"
+          min="2020-04-12T12:30"
+          max="2020-05-12T12:30"
+          class="date"
+        />
+      </div>
+      <div class="form-field">
+        <label for="pdf">Загрузка копии доклада в ПДФ</label>
+        <input type="file" name="pdf" id="pdf" />
+      </div>
+
+      <div class="form-field">
+        <label for="comment">Оставить комментарий</label>
+        <textarea
+          name="comment"
+          id="comment"
+          cols="30"
+          rows="10"
+          placeholder="Напишите текст"
+        ></textarea>
+      </div>
+
+      <div class="form-field">
+        <input type="checkbox" id="policy" name="policy" />
+        <label for="policy">Cоглашаюсь на все за еду</label>
+      </div>
+
+      <button type="submit">Отправить заявку</button>
+      <br />
+
+<!-- Кастомный Чекбокс  -->
+
+
+      <div class="form-field-checkbox">
+        <label class="checkbox-label">
+          <input
+            class="checkbox"
+            type="checkbox"
+            name="topic"
+            value="checkbox"
+          />
+          <span class="checkbox-icon"></span>
+          <span class="checkbox-text">Соглашаюсь с рассылкой и принимаю Условия договора</span>
+         
+        </label>
+      </div>
+
+
+      <!-- Кастомный Чекбокс---END -->
+    </form>
+  </body>
+</html>

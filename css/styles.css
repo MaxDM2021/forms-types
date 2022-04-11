@@ -1,0 +1,308 @@
+textarea {
+  /* Отключение изменения текстового поля */
+  resize: none;
+}
+
+form {
+  width: 600px;
+  outline: 1px solid tomato;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 100px;
+  padding: 20px;
+}
+
+.form-field {
+  display: flex;
+  /* outline: 1px solid blue; */
+  margin-bottom: 20px;
+  flex-direction: column;
+}
+.form-field label {
+  margin-bottom: 5px;
+}
+
+.form-field input,
+.form-field textarea {
+  margin: 0;
+  padding: 6px 10px;
+  border: 1px solid black;
+  border-radius: 4px;
+}
+
+/* Стилизировать можно только как текст, отступы не работают */
+
+.form-field input::placeholder,
+.form-field textarea::placeholder {
+  color: tomato;
+}
+
+
+/*---Lable в Input вставлен---*/
+
+.form-field-lable {
+  position: relative;
+  margin-bottom: 20px;
+}
+
+.form-input {
+
+  margin: 0;
+  height: 40px;
+  padding: 6px 30px;
+  border: 1px solid black;
+  border-radius: 4px;
+}
+
+.form-label {
+  position: absolute;
+  top: 50%;
+  left: 30px;
+  transform: translateY(-50%);
+  /* background-color: teal; */
+  color: #fff;
+  transition:  transform 250ms linear;
+}
+
+/* При этом обязательно label должен идти после input */
+/* Идет оформление .form-label  */
+/* 
+a+c
+a
+c
+b 
+*/
+
+/* 
+a b - потомок
+a > b - ребенок
+a + b - следующий сосед
+a ~ b - любой следующий сосед 
+*/
+
+.form-input:focus +.form-label,
+.form-input:not(:placeholder-shown) +.form-label {
+  transform: translateY(-50px);
+  color: blue;
+  
+}
+
+.form-input:placeholder-shown {
+  background-color: red;
+}
+
+.icon-name {
+  position: absolute;
+  top: 50%;
+  left: 10px;
+  transform: translateY(-50%);
+
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  background-color: tomato;
+
+}
+
+/* любой следующий сосед  */
+
+.form-input:focus ~ .icon-name {
+  background-color: blue;
+}
+
+/* Добавление синей рамки */
+.form-field-lable:focus-within {
+  padding: 10px;
+  background-color: blue;
+}
+
+/* Изменяется цвет иконки-квадратика */
+.form-field-lable.lb:focus-within > .icon-name {
+  background-color: green;
+}
+
+/* --- 2-й вариант более новый--- */
+
+
+.form-label .lb {
+  position: absolute;
+  top: 50%;
+  left: 30px;
+  transform: translateY(-50%);
+  /* background-color: teal; */
+  color: #fff;
+  transition:  transform 250ms linear;
+}
+
+
+.form-field-lable .lb:focus-within > .form-label .lb {
+  transform: translateY(-50%);
+}
+
+.form-input .lb:not(:placeholder-show) + .form-label .lb {
+  transform: translateY(-50%);
+}
+
+
+/*---Lable в Input вставлен-- END---*/
+
+
+/*---Избавление от ID-ишников---*/
+
+.form-field .le {
+  position: relative;
+}
+
+.form-label .le {
+  position: absolute;
+  top: 50%;
+  left: 40px;
+  transform: translateY(-50%);
+  background-color: green;
+  transition: transform 250ms linear;
+}
+
+.form-input .le {
+width: 100%;
+margin: 0;
+padding: 10px 20px;
+font: inherit;
+border-radius: 3px;
+border: 1px solid black;
+}
+
+.icon-le {
+  position: absolute;
+  top: 50%;
+  left: 10px;
+
+transform: translateY(-50%);
+
+display: inline-block;
+width: 20px;
+height: 20px;
+background-color: yellow;
+}
+
+.form-field-lable .le:focus-within > .form-label .le {
+  transform: translateY(-50%);
+}
+
+
+
+
+
+
+
+/*---Избавление от ID-ишников--END---*/
+
+.group {
+    margin-bottom: 20px;
+}
+
+.group-title {
+  margin-top: 0;
+  margin-bottom: 10px;
+}
+
+.topic-options, 
+.experians-options  {
+  padding: 0;
+  margin: 0;
+ list-style: none;
+}
+
+.topic-options li {
+  display: flex;
+  align-items: center;
+}
+
+
+/* Лучше не стилизировать, в разных браузерах по разному отображается, лучше использовать кастомные чекбоксы */
+.topic-options input[type="checkbox"] {
+  width: 40px;
+  height: 40px;
+}
+
+.topic-options label {
+  font-size: 20px;
+  margin-left: 10px;
+}
+
+.form-field .date {
+    border-color: red;
+    border-width: 5x;
+    border-radius: 4px;
+    padding: 20px 40px;
+    font-size: 20px;
+    color: green;
+
+}
+
+/* ---Кастомный Чекбокс--- */
+
+.checkbox-label {
+  display: flex;
+  align-items: center;
+  
+
+  font-family: "Roboto", sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 1.71;
+  letter-spacing: 0.03em;
+  color: black;
+}
+
+.checkbox {
+  display: block;
+  /* Отключение видимого стандартного чекбокса 1-й вариант:*/
+  /* appearance: none; */
+/* Отключение видимого стандартного чекбокса 2-й вариант:*/
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  border: 0;
+  padding: 0;
+  clip: rect(0 0 0 0);
+  overflow: hidden;
+}
+
+.checkbox-icon {
+  display: inline-block;
+  margin-right: 8px;
+  width: 16px;
+  height: 15px;
+  border: 2px solid black;
+  border-radius: 4px;
+
+  transition: transform 250ms linear;
+}
+
+.checkbox:checked + .checkbox-icon {
+
+ transform: scale(1.2);
+  background-color: blue;
+  background-image: url(../img/iconcheck.svg);
+  background-size: contain;
+  background-origin: border-box;
+  border-color: blue;
+}
+
+.checkbox-text {
+  transition: transform 500ms linear;
+}
+
+
+
+
+.checkbox:checked ~ .checkbox-text {
+  transform: translateX(20px);
+}
+
+
+
+
+/* ---Кастомный Чекбокс---END---  */
