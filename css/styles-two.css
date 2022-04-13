@@ -35,12 +35,92 @@ height: 100px;
 resize: none;
 padding: 15px;
 margin-bottom: 20px;
+border-color: red;
+outline: none;
+}
 
+/* В псевдоэлементе placeholder установили все заглавные буквы, а в самом надоре нет */
 
-
+.contact-form-message::placeholder {
+    text-transform: uppercase;
 
 
 }
+/* Когда placeholder-shown -видим: */
+.contact-form-message:placeholder-shown {
+    text-transform: uppercase;
+border-color: blue;
+    
+}
+
+
+/* ---Кастомный Чекбокс--- */
+
+
+/* Делает невидимым что либо, в нашем случае наш стандартный чекбокс, но при этом он работает */
+.visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    border: 0;
+    padding: 0;
+    white-space: nowrap;
+    clip-path: inset(100%);
+    clip: rect(0 0 0 0);
+    overflow: hidden;
+
+}
+
+
+
+.form-field-checkbox {
+    display: flex;
+    align-items: center;
+    margin-bottom: 40px;
+}
+
+.form-field-checkbox-input {
+    overflow: hidden;
+}
+
+.form-field-checkbox-label {
+    display: flex;
+    align-items: center;
+    font-size: 14px;
+    
+}
+
+.form-field-checkbox-label::before {
+   display: inline-block;
+    margin-right: 10px;
+    width: 18px;
+    height: 18px;
+    border: 1px solid black;
+    content: " ";
+    cursor: pointer;
+
+}
+
+/* Селектор соседа: */
+
+.form-field-checkbox-input:focus + .form-field-checkbox-label::before {
+    outline: 5px solid rgba(0, 0, 255, 0.5);
+}
+
+.form-field-checkbox-input:checked + .form-field-checkbox-label::before {
+    background-color: green;
+    box-shadow: inset 0 0 0 4px #fff;
+}
+
+
+
+
+
+/* ---Кастомный Чекбокс---END--- */
+
+
+
 .contact-form-btn-wrapper {
     margin-left: auto;
     margin-right: auto;
